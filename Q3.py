@@ -36,7 +36,7 @@
 #             right=mid-1
     
 #     return  -1
-        
+           
 
 # print(binary_search(l,3))
 
