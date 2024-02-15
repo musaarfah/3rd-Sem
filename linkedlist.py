@@ -15,6 +15,14 @@ class LinkedList:
             new_node.ref=self.head
             self.head=new_node
 
+    def insert_at_end(self,data):
+        new_node=Node(data)
+
+        current=self.head
+        while current.ref is not None:
+            current=current.ref
+        current.ref=new_node
+
     def print_llist(self):
         if self.head is None:
             print('Linked List is empty')
@@ -31,6 +39,8 @@ def main():
     l1=LinkedList()
     l1.insert_at_start(10)
     l1.insert_at_start(20)
+    l1.insert_at_start(30)
+    l1.insert_at_end(5)
     l1.print_llist()
 
 main()
