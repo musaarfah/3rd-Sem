@@ -21,7 +21,6 @@ class LinkedList:
 
         else:
             current=self.head
-            print(current)
             while current is not None:
                 print(current.data,end=' ')
                 current=current.ref
@@ -31,4 +30,7 @@ class LinkedList:
 def main():
     l1=LinkedList()
     l1.insert_at_start(10)
+    l1.insert_at_start(20)
     l1.print_llist()
+
+main()
