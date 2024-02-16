@@ -5,4 +5,4 @@ def dectooct(n):
     print(n%8,end=' ')
 
 
-dectooct(250)
+dectooct(16)
