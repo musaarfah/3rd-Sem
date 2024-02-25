@@ -1,0 +1,19 @@
+def shuffleMerge(self, list1, list2):
+        if not list1.head or not list2.head:
+            # If any of the lists is empty, nothing to merge
+            return
+
+        current1, current2 = list1.head, list2.head
+        while current1 and current2:
+            # Save the next nodes
+            next1, next2 = current1.next, current2.next
+
+            # Connect the nodes from list2 to list1
+            current1.next = current2
+            current2.next = next1
+
+            # Move to the next nodes in both lists
+            current1, current2 = next1, next2
+
+        # Clear the original lists
+        list1.head, list2.head = None, None

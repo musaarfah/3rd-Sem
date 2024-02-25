@@ -21,7 +21,7 @@ class LinkedList:
         current=self.head
         while current.ref is not None:
             current=current.ref
-        current.ref=new_node
+        current=new_node
 
     def print_llist(self):
         if self.head is None:

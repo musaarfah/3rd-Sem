@@ -71,6 +71,38 @@ class LinkedList:
                 print(current.data,end=' ')
                 current=current.ref
 
+    def remove_at_start(self):
+        if self.head is None:
+            return 'List is empty'
+        current=self.head
+        self.head=current.ref
+        del current
+
+    def remove_at_end(self):
+        if self.head is None:
+            return
+        current=self.head
+        current1=self.head
+        while current.ref is not None:
+            current1=current
+            current=current.ref
+        current1.ref=None
+
+        del current
+
+    def remove_before(self,key):
+        if self.head is None:
+            return
+        current =self.head
+        current1=self.head
+        while current is not None:
+            if current.ref.data==key:
+                del current
+                break
+
+
+
+
 
         
 def main():
@@ -81,7 +113,9 @@ def main():
     l1.insert_at_end(5)
     l1.insert_after(10,15)
     l1.insert_before(10,12)
-    print(l1.search(12))
+    # l1.remove_at_end()
+    # l1.remove_at_start()
+    # print(l1.search(12))
     l1.print_llist()
 
 main()
