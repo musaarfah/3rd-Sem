@@ -1,19 +1,50 @@
-def shuffleMerge(self, list1, list2):
-        if not list1.head or not list2.head:
-            # If any of the lists is empty, nothing to merge
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.ref = None
+
+class LinkedList:
+    def __init__(self, values=None):
+        self.head = None
+        if values is not None:
+            if isinstance(values, (list, tuple, set)):
+                for value in values:
+                    self.append(value)
+            else:
+                self.append(values)
+
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+        else:
+            current = self.head
+            while current.ref:
+                current = current.ref
+            current.ref = new_node
+
+    def display(self):
+        current = self.head
+        while current:
+            print(current.data, end=" ")
+            current = current.ref
+        print()
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
             return
 
-        current1, current2 = list1.head, list2.head
-        while current1 and current2:
-            # Save the next nodes
-            next1, next2 = current1.next, current2.next
+        current = self.head
+        while current.ref is not None:
+            current = current.ref
+        current.ref = new_node
 
-            # Connect the nodes from list2 to list1
-            current1.next = current2
-            current2.next = next1
+# Example usage
+l1 = LinkedList([1])
+l1.display()
 
-            # Move to the next nodes in both lists
-            current1, current2 = next1, next2
-
-        # Clear the original lists
-        list1.head, list2.head = None, None
+# Insert a value at the end
+l1.insert_at_end(2)
+l1.display()
