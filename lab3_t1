@@ -209,6 +209,19 @@ class LinkedList:
                 prev = current
             current = current.ref
         return self.head
+    
+    def reverse_llist(self):
+        current=self.head
+        prev=None
+
+        while current is not None:
+            next=current.ref
+            current.ref=prev
+            prev=current
+            current=next
+        self.head=prev
+        
+        
            
 
 
@@ -221,7 +234,9 @@ def main():
     l3=LinkedList()
    
     l1.print_llist()
-    l2.print_llist()
+    # l2.print_llist()
+    l1.reverse_llist()
+    l1.print_llist()
 
     # l1.remove_at_end()
     # l1.remove_at_start()
