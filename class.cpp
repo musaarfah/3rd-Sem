@@ -10,11 +10,11 @@ int id;
 int salary;
 public:
     int getsalary(){
-        return salary;
+        cout<< salary;
     }
 
     string getName(){
-        return name;
+        cout<< name;
     }
 
     void setName(string newname){
@@ -38,7 +38,8 @@ int main() {
     Employee e1;
     e1.setName("Jimmy Two face");
     e1.setSalary(200000);
-    e1.display();
+    e1.getsalary();
+    // e1.display();
 
     return 0;
 }
