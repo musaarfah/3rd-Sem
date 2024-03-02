@@ -62,12 +62,15 @@ class DoublyLinkedList:
                 if current.data == key:
                     new_node.prev=current
                     new_node.next=current.next
-                    current.next.prev=new_node
+                    if current.next is not None:
+                        current.next.prev=new_node
                     current.next=new_node
                 current=current.next
         else:
             print('Key Not in List')
             return
+        
+    
 
 
 
