@@ -226,12 +226,12 @@ class LinkedList:
 
 
 
-
         
 def main():
     l1=LinkedList([1,2,3,4,5])
     l2=LinkedList([6,7,8,9,9,10])
     l3=LinkedList()
+    
    
     l1.print_llist()
     # l2.print_llist()
