@@ -19,9 +19,9 @@ class Scheduler:
          circque.enqueue(self.processArray[i].processExtime)
 
     circque.display()
-    while not circque.isempty():
-        i=0
-        while circque[i]
+    # while not circque.isempty():
+    #     i=0
+    #     while circque[i]:
 
 
 if __name__ == "__main__":

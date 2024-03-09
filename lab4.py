@@ -46,7 +46,6 @@ class MyStack:
     def size(self):
         return self.count
     
-
 class MyQueue:
     def __init__(self):
         self.head=None
@@ -214,7 +213,7 @@ def reverse_string(string):
     
 
 
-# def main():
+def main():
     # s1=MyStack()
     # s1.push(7)
     # s1.push(2)
@@ -247,10 +246,12 @@ def reverse_string(string):
     # reverse_string('Welcome to DSA')
 
 
-    # q2=ListBaseCircularQueue(9)
-    # q2.enqueue(5)
-    # q2.enqueue(6)
-    # q2.enqueue(7)
-    # q2.display()
-    # print(q2.dequeue())
-    # q2.display()
+    q2=ListBaseCircularQueue(9)
+    q2.enqueue(5)
+    q2.enqueue(6)
+    q2.enqueue(7)
+    q2.display()
+
+  
+
+main()
