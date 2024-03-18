@@ -211,8 +211,6 @@ def reverse_string(string):
             print(dt.pop(),end='')
         print(end=" ")
     
-
-
 def main():
     # s1=MyStack()
     # s1.push(7)
