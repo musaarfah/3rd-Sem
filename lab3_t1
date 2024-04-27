@@ -1,7 +1,7 @@
 class Node:
     def __init__(self,data):
         self.data=data
-        self.ref=None
+        self.next=None
 
 class LinkedList:
     def __init__(self,values=None):
@@ -20,7 +20,7 @@ class LinkedList:
         if self.head is None:
             self.head=new_node
         else:
-            new_node.ref=self.head
+            new_node.next=self.head
             self.head=new_node
 
     def insert_at_end(self,data):
@@ -29,9 +29,9 @@ class LinkedList:
             self.head=new_node
         else:
             current=self.head
-            while current.ref is not None:
-                current=current.ref
-            current.ref=new_node  
+            while current.next is not None:
+                current=current.next
+            current.next=new_node  
      
     def insert_after(self,key,data):
         new_node=Node(data)
@@ -39,22 +39,22 @@ class LinkedList:
         current=self.head
         while current is not None:
             if current.data==key:
-                new_node.ref=current.ref
-                current.ref=new_node
+                new_node.next=current.next
+                current.next=new_node
                 break
-            current=current.ref
+            current=current.next
 
     def insert_before(self,key,data):
         new_node=Node(data)
         
 
         current=self.head
-        while current.ref is not None:
-            if current.ref.data==key:
-                new_node.ref=current.ref
-                current.ref=new_node
+        while current.next is not None:
+            if current.next.data==key:
+                new_node.next=current.next
+                current.next=new_node
                 break
-            current=current.ref
+            current=current.next
 
     def search(self,key):
         if self.head is None:
@@ -65,7 +65,7 @@ class LinkedList:
             while current is not None:
                 if current.data==key:
                     return True
-                current=current.ref
+                current=current.next
 
             return False
 
@@ -77,14 +77,14 @@ class LinkedList:
             current=self.head
             while current is not None:
                 print(current.data,end=' ')
-                current=current.ref
+                current=current.next
             print()
 
     def remove_at_start(self):
         if self.head is None:
             return 'List is empty'
         current=self.head
-        self.head=current.ref
+        self.head=current.next
         del current
 
     def remove_at_end(self):
@@ -92,10 +92,10 @@ class LinkedList:
             return
         current=self.head
         current1=self.head
-        while current.ref is not None:
+        while current.next is not None:
             current1=current
-            current=current.ref
-        current1.ref=None
+            current=current.next
+        current1.next=None
 
         del current
 
@@ -105,11 +105,11 @@ class LinkedList:
         current =self.head
         current1=self.head
         while current is not None:
-            if current.ref.data==key:
+            if current.next.data==key:
                 del current
                 break
             current1=current
-            current=current.ref
+            current=current.next
 
     def remove_after(self, key):
         if self.head is None:
@@ -117,13 +117,13 @@ class LinkedList:
             return
         temp = self.head
         temp2 = self.head
-        while temp.ref is not None:
+        while temp.next is not None:
             if temp.data == key:
-                temp.ref = temp2.ref
+                temp.next = temp2.next
                 del temp2
                 return
-            temp = temp.ref
-            temp2 = temp.ref
+            temp = temp.next
+            temp2 = temp.next
 
     def update(self, key ,val):
         temp = self.head
@@ -131,14 +131,14 @@ class LinkedList:
             if temp.data == key:
                 temp.data = val
                 return
-            temp = temp.ref
+            temp = temp.next
                 
     def count(self):
         current=self.head
         count=0
         while current is not None:
             count+=1
-            current=current.ref
+            current=current.next
         return count
              
     def removeKthnode(self,k):
@@ -155,23 +155,23 @@ class LinkedList:
             elif self.count()==k:
                 self.remove_at_end()
 
-            while current.ref.ref is not None:
+            while current.next.next is not None:
                 if count==k-1:
-                    new=current.ref.ref
-                    current.ref.ref=None
-                    current.ref=new
+                    new=current.next.next
+                    current.next.next=None
+                    current.next=new
                     break       
                 
-                current=current.ref 
+                current=current.next 
                 count+=1   
 
     def combine(self,list1,list2):
         self.head=list1.head
 
         current=list1.head
-        while current.ref is not None:
-            current=current.ref
-        current.ref=list2.head
+        while current.next is not None:
+            current=current.next
+        current.next=list2.head
  
     def shuffle_merge(self,list1,list2):
        self.head=list1.head
@@ -180,11 +180,11 @@ class LinkedList:
        current2=list2.head
 
        while current1 is not None:
-           next1=current1.ref
-           next2=current2.ref
+           next1=current1.next
+           next2=current2.next
 
            current1=current2
-           current2.ref=next1
+           current2.next=next1
 
            current1=next2
            current2=next2
@@ -199,15 +199,15 @@ class LinkedList:
         new = []
         new.append(self.head.data)
         prev = self.head
-        current = self.head.ref
+        current = self.head.next
     
         while current:
             if current.data in new:
-                prev.ref = current.ref
+                prev.next = current.next
             else:
                 new.append(current.data)
                 prev = current
-            current = current.ref
+            current = current.next
         return self.head
     
     def reverse_llist(self):
@@ -215,8 +215,8 @@ class LinkedList:
         prev=None
 
         while current is not None:
-            next=current.ref
-            current.ref=prev
+            next=current.next
+            current.next=prev
             prev=current
             current=next
         self.head=prev

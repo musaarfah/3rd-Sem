@@ -1,8 +1,18 @@
-def dectooct(n):
+# def dectooct(n):
+#     if n==0:
+#         return
+#     dectooct(n//8)
+#     print(n%8,end=' ')
+
+
+# dectooct(16)
+
+def dectoBin(n):
     if n==0:
         return
-    dectooct(n//8)
-    print(n%8,end=' ')
+    print(n%2,end=' ')
+    dectoBin(n//2)
 
 
-dectooct(16)
+
+dectoBin(38)

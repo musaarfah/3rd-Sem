@@ -123,10 +123,9 @@ def bubble_sort(arr):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
-
 # Example usage:
 if __name__ == "__main__":
-    unsorted_array=[random.randint(1,1000) for _ in range(5000)]
+    unsorted_array=[random.randint(1,1000) for _ in range(10000)]
     print('array unsorted')
 
     bubble_sort(unsorted_array.copy())
